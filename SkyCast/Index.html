@@ -1,0 +1,98 @@
+﻿<!--Author: Zareh Deirmendjian
+Version: 3.0
+Copyright: 2017-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SkyCast</title>
+    
+    <script type="text/javascript" src="fusioncharts/js/fusioncharts.js"></script>
+    <script src="Scripts/jquery-3.1.1.js"></script>
+    <script src="Scripts/jquery.cookie.js"></script>
+    <script type="text/javascript" src="fusioncharts/js/fusioncharts-jquery-plugin.js"></script>
+    <script src="Scripts/jquery.li-scroller.1.0.js"></script>
+    <link href="css/li-scroller.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap.min.js"></script>    <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js'></script>-->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/skyconsFile.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHMdgA00TKVH6x4l3_PlwcMtgWdTnVSss&libraries=places,geometry"></script>    
+    <script src="js/models.js"></script>    
+    <script src="js/view.js"></script>  
+    <script src="js/controller.js"></script>
+
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+    <input type="text" id="latitude" style="display:none;" />
+    <input type="text" id="longitude" style="display:none;" />
+
+    <header id="intro">
+        <article class="fullheight" id="HomeWindow">
+            <div class="hgroup">
+                <h1>SkyCast</h1>
+                <label for="city-search">Please Enter Your Location Below</label>
+                <input type="text" id="city-search" placeholder="e.g. Boston, MA" />
+                <div class="dropdown" style="margin-left: 41%; margin-top:5%";>
+                    <button id="historicalSearches" class="dropbtn btn btn-success btn-sm">History</button>
+                    <div id="historyDropdown" class="dropdown-content">                        
+                    </div>
+                </div>
+                <p><a href="#welcome" id="getlocation"><img src="images/misc/arrow.png" alt="down arrow"></a></p>
+            </div>
+        </article>
+        <nav id="nav" style="display:none;">
+            <div class="navbar">
+                <div class="brand"><a id ="weatherHeader" href="#welcome"></a></div>
+                <ul>
+                    <li><a class="navlink" href="#welcome" id="Today"><span>Today</span></a></li>
+                    <li><a class="navlink" href="#welcome" id="Hourly"><span>Hourly</span></a></li>
+                    <li><a class="navlink" href="#welcome" id="Week"><span>Next Week</span></a></li>
+                    <li><a class="navlink" href="#welcome" id="Historical"><span>Historical</span></a></li>                    
+                </ul>
+            </div><!-- navbar -->
+        </nav>
+    </header>
+    <main id="wrapper" style="display:none;">
+        <div class="scene" id="welcome">
+            <article class="content">
+                <div class="current" id="currentdata" style="margin-left: 25%;font-size: 150%;">
+                    <ul id="ticker01">
+                        <li><span id="alertHTML">No Current Alerts</span></li>
+                    </ul>
+                    <div class="col-md-10">                                                    
+                            <div class="col-md-2" id="currSumm">test</div>   
+                            <div class="col-md-2" id="currTime">test</div>                                                                                                                               
+                            <div class="col-md-2" id="currAirTemp">test</div>
+                            <div class="col-md-2" id="currAppTemp">test</div>
+                    </div>
+                    <div class="col-md-10">
+                            <div class="col-md-2" id="currHumidity">test</div> 
+                            <div class="col-md-2" id="currCloudCover">test</div>                        
+                            <div class="col-md-2" id="currWindSp">test</div>                                                    
+                    </div>
+
+                </div>                
+                
+
+                <div class="col-md-12" id="forecastInfo" style="display:none;">
+                    
+                </div>
+
+                <div id="chart-container" style="display:none;">
+                    
+                </div>
+
+
+
+
+
+            </article>
+        </div><!-- welcome -->       
+    </main>
+
+</body>
+</html>

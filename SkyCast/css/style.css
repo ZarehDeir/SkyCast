@@ -1,0 +1,531 @@
+﻿/*Author: Zareh Deirmendjian
+Version: 3.0
+Copyright: 2017*/
+
+
+@import url(http://fonts.googleapis.com/css?family=Exo+2:400,200,600,800);
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+.back.card span {
+    margin: 15%;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+    /* Dropdown button on hover & focus */
+    .dropbtn:hover, .dropbtn:focus {
+        background-color: #3e8e41;
+    }
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+    display: block;
+}
+
+.graphic {
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.48), 0 1px 0 rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+    padding: 1rem 1rem 2rem 1rem;
+    width: 100%;
+}
+
+    .graphic canvas {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+.DayForecast {
+    display: inline;
+    height: 100%;
+    width: 100%;
+}
+
+.card-container {
+    height: 100%;
+    width: 100%;
+}
+
+.card-container p {
+    margin-top: 10px;
+    min-height: 60px;
+    max-height: 60px;
+}
+#forecastInfo {
+    height: 100%;
+    margin: auto;
+    width: 100%;
+}
+
+#forecastInfo {
+    color: white;
+}
+
+#forecastInfo b {
+        color: darkgrey;
+    }
+
+
+/*#shading {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 2px;
+    margin: 1rem 0.5rem;
+    padding: 0.5rem;
+    background: #114856;
+}*/
+
+.col-md-1{
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 2px;
+    margin: 1rem 0.5rem;
+    padding: 0.5rem;
+    background: #114856;
+}
+
+#temp-form {
+    padding: 2px;
+    
+}
+
+.col-md-4{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+    #forecastInfo > li {
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        border-radius: 2px;
+        margin: 1rem 0.5rem;
+        padding: 0.5rem;
+        background: #114856;
+    }
+
+
+#latitude, #longitude{
+    visibility: hidden;
+}
+
+html {
+    line-height: 1;
+}
+
+
+ol, ul {
+    list-style: none;
+}
+
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+caption, th, td {
+    text-align: left;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+
+q, blockquote {
+    quotes: none;
+}
+
+    q:before, q:after, blockquote:before, blockquote:after {
+        content: "";
+        content: none;
+    }
+
+
+a img {
+    border: none;
+}
+
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input {
+    font: 200 1em/1.5em "Exo 2", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #FFFFFF;
+    color: #000000;
+}
+
+body {
+    font: 200 1em/1.5em "Exo 2", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #FFFFFF;
+    color: #000000;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font: 200 1.5em/1.5em "Exo 2", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #0e83a0;
+    font-weight: 600;
+}
+
+
+strong {
+    font-weight: 600;
+}
+
+
+p {
+    font-weight: 200;
+    padding-bottom: 10px;
+}
+
+
+body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+.scene {
+    position: relative;
+    padding: 20px 0;
+}
+
+    .scene article {
+        max-width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        .scene article:after {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+
+@media (min-width: 1200px) {
+
+    .scene {
+        padding: 40px 0;
+    }
+}
+
+@media (min-width: 960px) {
+
+    .scene article {
+        max-width: 60em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        .scene article:after {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+}
+
+
+header .fullheight {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("../images/sunset-skySplash.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+    header .fullheight .hgroup {
+        padding: 100px 0;
+    }
+
+        header .fullheight .hgroup h1 {
+            color: #FFFFFF;
+            font-size: 5em;
+            font-weight: 800;
+            line-height: .8em;
+            text-shadow: #000000 0 0 20px;
+            text-align: center;
+        }
+
+        header .fullheight .hgroup input, label {
+            display: block;
+            color: #FFFFFF;
+            /*width: 60%;*/
+            max-width: 200px;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid #FFFFFF;
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            font-size: 1.3em;
+        }
+
+        header .fullheight .hgroup p {
+            text-align: center;
+        }
+
+            header .fullheight .hgroup p img {
+                padding-top: 50px;
+                max-width: 50px;
+            }
+
+
+header #nav {
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBhNWM3MSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA2MzY0MiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+    background-size: 100%;
+    background-image: -moz-linear-gradient(top, #0a5c71, #063642);
+    background-image: -webkit-linear-gradient(top, #0a5c71, #063642);
+    background-image: linear-gradient(to bottom, #0a5c71, #063642);
+    width: 100%;
+    z-index: 100;
+}
+
+    header #nav:before, header #nav:after {
+        content: '';
+        display: table;
+    }
+
+    header #nav:after {
+        clear: both;
+    }
+
+    header #nav .navbar {
+        /*max-width: 60em;*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        header #nav .navbar:after {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+
+        header #nav .navbar .brand {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 33.33333%;
+            float: left;
+            padding-left: 0.83333%;
+            padding-right: 0.83333%;
+            float: left;
+            font-weight: 600;
+            font-family: 200 1.5em/1.5em "Exo 2", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-align: center;
+            text-transform: uppercase;
+            background: #DF4848;
+        }
+
+            header #nav .navbar .brand a {
+                color: #FFFFFF;
+                text-decoration: none;
+                text-align: center;
+                display: inline-block;
+                padding: 10px;
+                font-size: 1.5em;
+            }
+
+@media (max-width: 650px) {
+
+    header #nav .navbar .brand a {
+        font-size: 1.2em;
+    }
+
+        header #nav .navbar .brand a span {
+            display: none;
+        }
+}
+
+header #nav .navbar ul {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 66.66667%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+}
+
+    header #nav .navbar ul li {
+        float: left;
+    }
+
+        header #nav .navbar ul li a {
+            color: #FFFFFF;
+            font: 200 1em/1.5em "Exo 2", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 1em;
+            display: inline-block;
+            padding: 10px 10px 10px 45px;
+            text-decoration: none;
+            background-size: 35px;
+            background-repeat: no-repeat;
+            background-position: 2px;
+        }                 
+            
+            header #nav .navbar ul li a:hover {
+                background-color: #EFC94C;
+                color: #063642;
+            }
+
+@media (min-width: 0) and (max-width: 650px) {
+    
+    header #nav .navbar ul li a {
+        padding: 10px 18px;
+    }
+    
+        header #nav .navbar ul li a::after {
+            content: '\000a0';
+            display: block;
+        }
+    
+       header #nav .navbar ul li a span {
+            display: none;
+        }
+}
+
+@media (min-width: 650px) and (max-width: 960px) {    
+    header #nav .navbar ul li a {
+        padding-left: 10px;
+    }        
+    header #nav .navbar ul li a.icon {
+            background-image: none;
+        }
+}
+    
+    header #nav .navbar ul li a.active {
+        background-color: #DF4848;
+        color: #FFFFFF;
+    }
+
+
+    #welcome {
+        background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VmYzk0YyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2UyN2EzZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+        background-size: 100%;
+        background-image: -moz-linear-gradient(top, #efc94c, #e27a3f);
+        background-image: -webkit-linear-gradient(top, #efc94c, #e27a3f);
+        background-image: linear-gradient(to bottom, silver, white);
+    }
+    
+    #welcome article {
+        text-align: center;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+        #welcome article:after {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+
+@media (min-width: 650px) {
+    
+    #welcome article {   
+        margin-left: auto;
+        margin-right: auto;
+        padding: 60px 0;
+    }        
+        #welcome article:after {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+}
+
+#welcome h1 {
+    font-weight: normal;
+    line-height: 100%;
+    color: #a24a19;
+    padding: 10px 0;
+}
+
+#welcome .current:before, #welcome .current:after {
+    content: '';
+    display: table;
+}
+
+#welcome .current:after {
+    clear: both;
+}
+
+#welcome .current li {
+    -moz-border-radius: 20%;
+    -webkit-border-radius: 20%;
+    border-radius: 20%;
+   
+}
+
